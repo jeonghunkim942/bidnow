@@ -1,0 +1,105 @@
+/* Custom Styles over Tailwind */
+html {
+    scroll-behavior: smooth;
+    background-color: #0F172A; /* Tailwind's Slate 900 */
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0F172A; 
+}
+::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0EA5E9; 
+}
+
+/* Glassmorphism effects */
+.glass-effect {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hover-card-effect {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-card-effect:hover {
+    transform: translateY(-8px);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.2);
+}
+
+.hover-card-effect:hover i {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px currentColor);
+}
+
+.hover-card-effect i {
+    transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px) scale(1.05); }
+    50% { transform: translateY(-15px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1.05); }
+}
+
+.float-animation {
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    opacity: 0; 
+}
+
+.fade-up.animate {
+    animation: fadeInUp 0.8s forwards;
+}
+
+/* Utility classes applied directly */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0EA5E9;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
